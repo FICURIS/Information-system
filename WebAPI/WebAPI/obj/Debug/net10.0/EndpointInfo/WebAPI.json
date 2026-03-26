@@ -481,17 +481,26 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Request"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Request"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Request"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Request"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Request"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Request"
+                  }
                 }
               }
             }
@@ -1503,13 +1512,22 @@
             "type": "integer",
             "format": "int32"
           },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
           "courseID": {
             "type": "integer",
             "format": "int32"
           },
+          "course": {
+            "$ref": "#/components/schemas/Course"
+          },
           "statusID": {
             "type": "integer",
             "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RequestStatus"
           },
           "createdDate": {
             "type": "string",

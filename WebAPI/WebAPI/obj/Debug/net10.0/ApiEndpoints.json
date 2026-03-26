@@ -279,7 +279,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebAPI.Models.Request",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.Request, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

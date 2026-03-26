@@ -18,18 +18,21 @@ namespace WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Request>>> GetAll()
         {
-            return await _db.Request.ToListAsync();
+            return await _db.Request
+                .Include(r => r.User)
+                .Include(r => r.Course)
+                .Include(r => r.Status)
+                .ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Request>> Get(int id)
+        public async Task<IEnumerable<Request>> Get(int id)
         {
-            var request = await _db.Request.FindAsync(id);
-
-            if (request == null)
-                return NotFound();
-
-            return request;
+            return await _db.Request
+                .Include(r => r.User)
+                .Include(r => r.Course)
+                .Include(r => r.Status)
+                .ToListAsync();
         }
 
         [HttpPost]
