@@ -750,11 +750,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Ficuris\\Desktop\\sd\\WebAPI\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj",
+      "projectPath": "C:\\Users\\Ficuris\\Desktop\\sd\\WebAPI\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\Ficuris\\.nuget\\packages\\",
-      "outputPath": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\Ficuris\\Desktop\\sd\\WebAPI\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

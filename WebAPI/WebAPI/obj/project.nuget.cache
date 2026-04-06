@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "26u7/taTeVo=",
+  "dgSpecHash": "fMGMM1bAhOU=",
   "success": true,
-  "projectFilePath": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\Ficuris\\Desktop\\sd\\WebAPI\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ficuris\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\10.0.3\\microsoft.aspnetcore.diagnostics.entityframeworkcore.10.0.3.nupkg.sha512",
     "C:\\Users\\Ficuris\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
