@@ -1,79 +1,52 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class RequestController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class RequestController : ControllerBase
+    private readonly IRequestService _service;
+
+    public RequestController(IRequestService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public RequestController(TodoDb db)
-        {
-            _db = db;
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+        => Ok(await _service.GetAll());
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Request>>> GetAll()
-        {
-            return await _db.Request
-                .Include(r => r.User)
-                .Include(r => r.Course)
-                .Include(r => r.Status)
-                .ToListAsync();
-        }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var item = await _service.GetById(id);
+        if (item == null) return NotFound();
 
-        [HttpGet("{id}")]
-        public async Task<IEnumerable<Request>> Get(int id)
-        {
-            return await _db.Request
-                .Include(r => r.User)
-                .Include(r => r.Course)
-                .Include(r => r.Status)
-                .ToListAsync();
-        }
+        return Ok(item);
+    }
 
-        [HttpPost]
-        public async Task<ActionResult<Request>> Create(Request request)
-        {
-            _db.Request.Add(request);
-            await _db.SaveChangesAsync();
+    [HttpPost]
+    public async Task<IActionResult> Create(Request request)
+    {
+        var created = await _service.Create(request);
+        return Ok(created);
+    }
 
-            return CreatedAtAction(nameof(Get), new { id = request.RequestID }, request);
-        }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, Request request)
+    {
+        if (!await _service.Update(id, request))
+            return NotFound();
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Request inputRequest)
-        {
-            var request = await _db.Request.FindAsync(id);
+        return NoContent();
+    }
 
-            if (request == null)
-                return NotFound();
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        if (!await _service.Delete(id))
+            return NotFound();
 
-            request.UserID = inputRequest.UserID;
-            request.CourseID = inputRequest.CourseID;
-            request.StatusID = inputRequest.StatusID;
-
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var request = await _db.Request.FindAsync(id);
-
-            if (request == null)
-                return NotFound();
-
-            _db.Request.Remove(request);
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
-
+        return NoContent();
     }
 }

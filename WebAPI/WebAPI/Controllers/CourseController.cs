@@ -1,76 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class CourseController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class CourseController : ControllerBase
+    private readonly ICourseService _service;
+
+    public CourseController(ICourseService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public CourseController(TodoDb db)
-        {
-            _db = db;
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        return Ok(await _service.GetAll());
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Course>>> GetAll()
-        {
-            return await _db.Course.ToListAsync();
-        }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var course = await _service.GetById(id);
+        if (course == null) return NotFound();
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Course>> Get(int id)
-        {
-            var course = await _db.Course.FindAsync(id);
+        return Ok(course);
+    }
 
-            if (course == null)
-                return NotFound();
+    [HttpPost]
+    public async Task<IActionResult> Create(Course course)
+    {
+        var created = await _service.Create(course);
+        return Ok(created);
+    }
 
-            return course;
-        }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, Course course)
+    {
+        var updated = await _service.Update(id, course);
+        if (!updated) return NotFound();
 
-        [HttpPost]
-        public async Task<ActionResult<Course>> Create(Course course)
-        {
-            _db.Course.Add(course);
-            await _db.SaveChangesAsync();
+        return NoContent();
+    }
 
-            return CreatedAtAction(nameof(Get), new { id = course.CourseID }, course);
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var deleted = await _service.Delete(id);
+        if (!deleted) return NotFound();
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Course inputCourse)
-        {
-            var course = await _db.Course.FindAsync(id);
-
-            if (course == null)
-                return NotFound();
-
-            course.CourseName = inputCourse.CourseName;
-            course.StartDate = inputCourse.StartDate;
-            course.EndDate = inputCourse.EndDate;
-            course.Description = inputCourse.Description;
-
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var course = await _db.Course.FindAsync(id);
-
-            if (course == null)
-                return NotFound();
-
-            _db.Course.Remove(course);
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
+        return NoContent();
     }
 }

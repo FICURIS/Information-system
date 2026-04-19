@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "WebAPI.Controllers.AuthController",
+    "ContainingType": "AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -13,20 +13,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.AuthController",
+    "ContainingType": "AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
@@ -39,40 +29,20 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.CourseController",
+    "ContainingType": "CourseController",
     "Method": "GetAll",
     "RelativePath": "api/Course",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.Course, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.CourseController",
+    "ContainingType": "CourseController",
     "Method": "Create",
     "RelativePath": "api/Course",
     "HttpMethod": "POST",
@@ -85,20 +55,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.Course",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.CourseController",
+    "ContainingType": "CourseController",
     "Method": "Get",
     "RelativePath": "api/Course/{id}",
     "HttpMethod": "GET",
@@ -111,20 +71,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.Course",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.CourseController",
+    "ContainingType": "CourseController",
     "Method": "Update",
     "RelativePath": "api/Course/{id}",
     "HttpMethod": "PUT",
@@ -137,7 +87,7 @@
         "IsRequired": true
       },
       {
-        "Name": "inputCourse",
+        "Name": "course",
         "Type": "WebAPI.Models.Course",
         "IsRequired": true
       }
@@ -145,7 +95,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.CourseController",
+    "ContainingType": "CourseController",
     "Method": "Delete",
     "RelativePath": "api/Course/{id}",
     "HttpMethod": "DELETE",
@@ -161,27 +111,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.PhoneNumberController",
+    "ContainingType": "PhoneNumberController",
     "Method": "GetAll",
     "RelativePath": "api/PhoneNumber",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.PhoneNumber, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.PhoneNumberController",
+    "ContainingType": "PhoneNumberController",
     "Method": "Create",
     "RelativePath": "api/PhoneNumber",
     "HttpMethod": "POST",
@@ -189,25 +129,15 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "phoneNumber",
+        "Name": "phone",
         "Type": "WebAPI.Models.PhoneNumber",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.PhoneNumber",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.PhoneNumberController",
+    "ContainingType": "PhoneNumberController",
     "Method": "Get",
     "RelativePath": "api/PhoneNumber/{id}",
     "HttpMethod": "GET",
@@ -220,41 +150,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.PhoneNumber",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebAPI.Controllers.PhoneNumberController",
-    "Method": "Update",
-    "RelativePath": "api/PhoneNumber/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "inputPhoneNumber",
-        "Type": "WebAPI.Models.PhoneNumber",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.PhoneNumberController",
+    "ContainingType": "PhoneNumberController",
     "Method": "Delete",
     "RelativePath": "api/PhoneNumber/{id}",
     "HttpMethod": "DELETE",
@@ -270,27 +169,33 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestController",
+    "ContainingType": "PhoneNumberController",
+    "Method": "GetByUser",
+    "RelativePath": "api/PhoneNumber/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RequestController",
     "Method": "GetAll",
     "RelativePath": "api/Request",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.Request, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestController",
+    "ContainingType": "RequestController",
     "Method": "Create",
     "RelativePath": "api/Request",
     "HttpMethod": "POST",
@@ -303,20 +208,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.Request",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestController",
+    "ContainingType": "RequestController",
     "Method": "Get",
     "RelativePath": "api/Request/{id}",
     "HttpMethod": "GET",
@@ -329,20 +224,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.Request, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestController",
+    "ContainingType": "RequestController",
     "Method": "Update",
     "RelativePath": "api/Request/{id}",
     "HttpMethod": "PUT",
@@ -355,7 +240,7 @@
         "IsRequired": true
       },
       {
-        "Name": "inputRequest",
+        "Name": "request",
         "Type": "WebAPI.Models.Request",
         "IsRequired": true
       }
@@ -363,7 +248,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestController",
+    "ContainingType": "RequestController",
     "Method": "Delete",
     "RelativePath": "api/Request/{id}",
     "HttpMethod": "DELETE",
@@ -379,27 +264,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestStatusController",
+    "ContainingType": "RequestStatusController",
     "Method": "GetAll",
     "RelativePath": "api/RequestStatus",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.RequestStatus, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestStatusController",
+    "ContainingType": "RequestStatusController",
     "Method": "Create",
     "RelativePath": "api/RequestStatus",
     "HttpMethod": "POST",
@@ -407,25 +282,15 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "requestStatus",
+        "Name": "status",
         "Type": "WebAPI.Models.RequestStatus",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.RequestStatus",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestStatusController",
+    "ContainingType": "RequestStatusController",
     "Method": "Get",
     "RelativePath": "api/RequestStatus/{id}",
     "HttpMethod": "GET",
@@ -438,20 +303,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.RequestStatus",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestStatusController",
+    "ContainingType": "RequestStatusController",
     "Method": "Update",
     "RelativePath": "api/RequestStatus/{id}",
     "HttpMethod": "PUT",
@@ -464,7 +319,7 @@
         "IsRequired": true
       },
       {
-        "Name": "inputRequestStatus",
+        "Name": "status",
         "Type": "WebAPI.Models.RequestStatus",
         "IsRequired": true
       }
@@ -472,7 +327,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RequestStatusController",
+    "ContainingType": "RequestStatusController",
     "Method": "Delete",
     "RelativePath": "api/RequestStatus/{id}",
     "HttpMethod": "DELETE",
@@ -488,27 +343,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RoleController",
+    "ContainingType": "RoleController",
     "Method": "GetAll",
     "RelativePath": "api/Role",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.Role, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RoleController",
+    "ContainingType": "RoleController",
     "Method": "Create",
     "RelativePath": "api/Role",
     "HttpMethod": "POST",
@@ -521,20 +366,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.Role",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RoleController",
+    "ContainingType": "RoleController",
     "Method": "Get",
     "RelativePath": "api/Role/{id}",
     "HttpMethod": "GET",
@@ -547,20 +382,31 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.Role",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.RoleController",
+    "ContainingType": "RoleController",
+    "Method": "Update",
+    "RelativePath": "api/Role/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "role",
+        "Type": "WebAPI.Models.Role",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoleController",
     "Method": "Delete",
     "RelativePath": "api/Role/{id}",
     "HttpMethod": "DELETE",
@@ -576,27 +422,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserController",
+    "ContainingType": "UserController",
     "Method": "GetAll",
     "RelativePath": "api/User",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.User, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserController",
+    "ContainingType": "UserController",
     "Method": "Create",
     "RelativePath": "api/User",
     "HttpMethod": "POST",
@@ -609,20 +445,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserController",
+    "ContainingType": "UserController",
     "Method": "Get",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",
@@ -635,20 +461,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserController",
+    "ContainingType": "UserController",
     "Method": "Update",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "PUT",
@@ -661,7 +477,7 @@
         "IsRequired": true
       },
       {
-        "Name": "inputUser",
+        "Name": "user",
         "Type": "WebAPI.Models.User",
         "IsRequired": true
       }
@@ -669,7 +485,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserController",
+    "ContainingType": "UserController",
     "Method": "Delete",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "DELETE",
@@ -685,27 +501,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserEnrollmentController",
+    "ContainingType": "UserEnrollmentController",
     "Method": "GetAll",
     "RelativePath": "api/UserEnrollment",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.UserEnrollment, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserEnrollmentController",
+    "ContainingType": "UserEnrollmentController",
     "Method": "Create",
     "RelativePath": "api/UserEnrollment",
     "HttpMethod": "POST",
@@ -713,25 +519,15 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userEnrollment",
+        "Name": "enrollment",
         "Type": "WebAPI.Models.UserEnrollment",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.UserEnrollment",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserEnrollmentController",
+    "ContainingType": "UserEnrollmentController",
     "Method": "Get",
     "RelativePath": "api/UserEnrollment/{id}",
     "HttpMethod": "GET",
@@ -744,41 +540,10 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.UserEnrollment",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebAPI.Controllers.UserEnrollmentController",
-    "Method": "Update",
-    "RelativePath": "api/UserEnrollment/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "inputUserEnrollment",
-        "Type": "WebAPI.Models.UserEnrollment",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserEnrollmentController",
+    "ContainingType": "UserEnrollmentController",
     "Method": "Delete",
     "RelativePath": "api/UserEnrollment/{id}",
     "HttpMethod": "DELETE",
@@ -794,101 +559,50 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserRolesController",
+    "ContainingType": "UserEnrollmentController",
+    "Method": "GetByUser",
+    "RelativePath": "api/UserEnrollment/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserRolesController",
     "Method": "GetAll",
     "RelativePath": "api/UserRoles",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI.Models.UserRoles, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserRolesController",
-    "Method": "Create",
+    "ContainingType": "UserRolesController",
+    "Method": "AssignRole",
     "RelativePath": "api/UserRoles",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userRoles",
+        "Name": "userRole",
         "Type": "WebAPI.Models.UserRoles",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.UserRoles",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebAPI.Controllers.UserRolesController",
-    "Method": "Get",
-    "RelativePath": "api/UserRoles/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "WebAPI.Models.UserRoles",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebAPI.Controllers.UserRolesController",
-    "Method": "Update",
-    "RelativePath": "api/UserRoles/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "inputRole",
-        "Type": "WebAPI.Models.Role",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI.Controllers.UserRolesController",
-    "Method": "Delete",
+    "ContainingType": "UserRolesController",
+    "Method": "RemoveRole",
     "RelativePath": "api/UserRoles/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -896,6 +610,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserRolesController",
+    "Method": "GetByUser",
+    "RelativePath": "api/UserRoles/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }

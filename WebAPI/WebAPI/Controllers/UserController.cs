@@ -1,78 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class UserController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    private readonly IUserService _service;
+
+    public UserController(IUserService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public UserController(TodoDb db)
-        {
-            _db = db;
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        return Ok(await _service.GetAll());
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetAll()
-        {
-            return await _db.User.ToListAsync();
-        }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var user = await _service.GetById(id);
+        if (user == null) return NotFound();
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> Get(int id)
-        {
-            var user = await _db.User.FindAsync(id);
+        return Ok(user);
+    }
 
-            if (user == null)
-                return NotFound();
+    [HttpPost]
+    public async Task<IActionResult> Create(User user)
+    {
+        var created = await _service.Create(user);
+        return Ok(created);
+    }
 
-            return user;
-        }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, User user)
+    {
+        var updated = await _service.Update(id, user);
+        if (!updated) return NotFound();
 
-        [HttpPost]
-        public async Task<ActionResult<User>> Create(User user)
-        {
-            _db.User.Add(user);
-            await _db.SaveChangesAsync();
+        return NoContent();
+    }
 
-            return CreatedAtAction(nameof(Get), new { id = user.UserID }, user);
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var deleted = await _service.Delete(id);
+        if (!deleted) return NotFound();
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, User inputUser)
-        {
-            var user = await _db.User.FindAsync(id);
-
-            if (user == null)
-                return NotFound();
-
-            user.Login = inputUser.Login;
-            user.PasswordHash = inputUser.PasswordHash;
-            user.LastName = inputUser.LastName;
-            user.FirstName = inputUser.FirstName;
-            user.MiddleName = inputUser.MiddleName;
-            user.Email = inputUser.Email;
-
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var user = await _db.User.FindAsync(id);
-
-            if (user == null)
-                return NotFound();
-
-            _db.User.Remove(user);
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
+        return NoContent();
     }
 }

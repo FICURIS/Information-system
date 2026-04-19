@@ -1,63 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class AuthController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class AuthController : ControllerBase
+    private readonly IAuthService _service;
+
+    public AuthController(IAuthService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public AuthController(TodoDb db)
-        {
-            _db = db;
-        }
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(LoginDto dto)
+    {
+        var token = await _service.Login(dto.Login, dto.Password);
 
-        [HttpPost("login")]
-        public async Task<ActionResult<User>> Login(LoginDto dto)
-        {
-            var user = await _db.User
-                .FirstOrDefaultAsync(u =>
-                    u.Login == dto.Login &&
-                    u.PasswordHash == dto.Password);
+        if (token == null)
+            return Unauthorized("Invalid login or password");
 
-            if (user == null)
-                return Unauthorized("Неверный логин или пароль");
-
-            bool isValid = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
-
-            if (!isValid)
-                return Unauthorized("Неверный логин или пароль");
-
-            return Ok(user);
-        }
+        return Ok(new { token });
+    }
 
     [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(RegisterDto dto)
+    public async Task<IActionResult> Register(RegisterDto dto)
+    {
+        var user = new User
         {
-            var exists = await _db.User.AnyAsync(u => u.Login == dto.Login);
+            Login = dto.Login,
+            PasswordHash = dto.Password,
+            Email = dto.Email
+        };
 
-            if (exists)
-                return BadRequest("Пользователь уже существует");
+        var created = await _service.Register(user);
 
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
-
-            var user = new User
-            {
-                Login = dto.Login,
-                PasswordHash = dto.Password,
-                LastName = dto.LastName,
-                FirstName = dto.FirstName,
-                MiddleName = dto.MiddleName,
-                Email = dto.Email
-            };
-
-            _db.User.Add(user);
-            await _db.SaveChangesAsync();
-
-            return Ok(user);
-        }
+        return Ok(created);
     }
 }
