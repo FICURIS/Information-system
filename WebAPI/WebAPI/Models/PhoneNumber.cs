@@ -8,6 +8,6 @@ namespace WebAPI.Models
         [Key]
         public int PhoneNumberID { get; set; }
         public int UserID { get; set; }
-        public string Number { get; set; }
+        public string? Number { get; set; }
     }
 }

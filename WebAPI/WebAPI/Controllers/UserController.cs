@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
                 return NotFound();
 
             user.Login = inputUser.Login;
-            user.Password = inputUser.Password;
+            user.PasswordHash = inputUser.PasswordHash;
             user.LastName = inputUser.LastName;
             user.FirstName = inputUser.FirstName;
             user.MiddleName = inputUser.MiddleName;

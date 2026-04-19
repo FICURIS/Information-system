@@ -8,13 +8,13 @@ namespace WebAPI.Models
         [Key]
         public int UserID { get; set; }
         [Required]
-        public string Login { get; set; }
+        public string Login { get; set; } = null!;
         [Required]
-        public string PasswordHash { get; set; }
+        public string PasswordHash { get; set; } = null!;
 
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
+        public string? LastName { get; set; }
+        public string? FirstName { get; set; }
+        public string? MiddleName { get; set; }
         public string? Email { get; set; }
     }
 }

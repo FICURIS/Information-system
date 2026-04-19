@@ -1705,6 +1705,10 @@
         "additionalProperties": false
       },
       "User": {
+        "required": [
+          "login",
+          "passwordHash"
+        ],
         "type": "object",
         "properties": {
           "userID": {
@@ -1712,12 +1716,12 @@
             "format": "int32"
           },
           "login": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
-          "password": {
-            "type": "string",
-            "nullable": true
+          "passwordHash": {
+            "minLength": 1,
+            "type": "string"
           },
           "lastName": {
             "type": "string",

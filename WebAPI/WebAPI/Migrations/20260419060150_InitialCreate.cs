@@ -18,10 +18,10 @@ namespace WebAPI.Migrations
                 {
                     CourseID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CourseName = table.Column<string>(type: "text", nullable: false),
+                    CourseName = table.Column<string>(type: "text", nullable: true),
                     StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false)
+                    Description = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -35,7 +35,7 @@ namespace WebAPI.Migrations
                     PhoneNumberID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserID = table.Column<int>(type: "integer", nullable: false),
-                    Number = table.Column<string>(type: "text", nullable: false)
+                    Number = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,7 +48,7 @@ namespace WebAPI.Migrations
                 {
                     StatusID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    StatusName = table.Column<string>(type: "text", nullable: false)
+                    StatusName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -61,29 +61,11 @@ namespace WebAPI.Migrations
                 {
                     RoleID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    RoleName = table.Column<string>(type: "text", nullable: false)
+                    RoleName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Role", x => x.RoleID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    UserID = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Login = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    LastName = table.Column<string>(type: "text", nullable: false),
-                    FirstName = table.Column<string>(type: "text", nullable: false),
-                    MiddleName = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.UserID);
                 });
 
             migrationBuilder.CreateTable(
@@ -117,6 +99,24 @@ namespace WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "users",
+                columns: table => new
+                {
+                    user_id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    login = table.Column<string>(type: "text", nullable: false),
+                    password_hash = table.Column<string>(type: "text", nullable: false),
+                    LastName = table.Column<string>(type: "text", nullable: true),
+                    FirstName = table.Column<string>(type: "text", nullable: true),
+                    MiddleName = table.Column<string>(type: "text", nullable: true),
+                    email = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_users", x => x.user_id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Request",
                 columns: table => new
                 {
@@ -143,10 +143,10 @@ namespace WebAPI.Migrations
                         principalColumn: "StatusID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Request_User_UserID",
+                        name: "FK_Request_users_UserID",
                         column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "UserID",
+                        principalTable: "users",
+                        principalColumn: "user_id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -191,7 +191,7 @@ namespace WebAPI.Migrations
                 name: "RequestStatus");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "users");
         }
     }
 }
