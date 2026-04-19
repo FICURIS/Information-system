@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rvcLY1F0cDc=",
+  "dgSpecHash": "rdR6oTt2KRs=",
   "success": true,
   "projectFilePath": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Ficuris\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\Ficuris\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Ficuris\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\10.0.3\\microsoft.aspnetcore.diagnostics.entityframeworkcore.10.0.3.nupkg.sha512",
     "C:\\Users\\Ficuris\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",

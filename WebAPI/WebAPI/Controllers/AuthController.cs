@@ -21,9 +21,14 @@ namespace WebAPI.Controllers
             var user = await _db.User
                 .FirstOrDefaultAsync(u =>
                     u.Login == dto.Login &&
-                    u.Password == dto.Password);
+                    u.PasswordHash == dto.Password);
 
             if (user == null)
+                return Unauthorized("Неверный логин или пароль");
+
+            bool isValid = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
+
+            if (!isValid)
                 return Unauthorized("Неверный логин или пароль");
 
             return Ok(user);
@@ -37,10 +42,12 @@ namespace WebAPI.Controllers
             if (exists)
                 return BadRequest("Пользователь уже существует");
 
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
             var user = new User
             {
                 Login = dto.Login,
-                Password = dto.Password,
+                PasswordHash = dto.Password,
                 LastName = dto.LastName,
                 FirstName = dto.FirstName,
                 MiddleName = dto.MiddleName,
