@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Models
 {
@@ -6,6 +7,6 @@ namespace WebAPI.Models
     {
         [Key]
         public int StatusID { get; set; }
-        public string StatusName { get; set; }
+        public string? StatusName { get; set; }
     }
 }

@@ -1,73 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class UserEnrollmentController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UserEnrollmentController : ControllerBase
+    private readonly IUserEnrollmentService _service;
+
+    public UserEnrollmentController(IUserEnrollmentService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public UserEnrollmentController(TodoDb db)
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+        => Ok(await _service.GetAll());
+
+    [HttpGet("user/{userId}")]
+    public async Task<IActionResult> GetByUser(int userId)
+        => Ok(await _service.GetByUserId(userId));
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var item = await _service.GetById(id);
+        if (item == null) return NotFound();
+
+        return Ok(item);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(UserEnrollment enrollment)
+    {
+        try
         {
-            _db = db;
+            var created = await _service.Create(enrollment);
+            return Ok(created);
         }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserEnrollment>>> GetAll()
+        catch (Exception ex)
         {
-            return await _db.UserEnrollment.ToListAsync();
+            return BadRequest(ex.Message);
         }
+    }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserEnrollment>> Get(int id)
-        {
-            var userEnrollment = await _db.UserEnrollment.FindAsync(id);
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        if (!await _service.Delete(id))
+            return NotFound();
 
-            if (userEnrollment == null)
-                return NotFound();
-
-            return userEnrollment;
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<UserEnrollment>> Create(UserEnrollment userEnrollment)
-        {
-            _db.UserEnrollment.Add(userEnrollment);
-            await _db.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(Get), new { id = userEnrollment.UserEnrollmentID }, userEnrollment);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, UserEnrollment inputUserEnrollment)
-        {
-            var userEnrollment = await _db.UserEnrollment.FindAsync(id);
-
-            if (userEnrollment == null)
-                return NotFound();
-
-            userEnrollment.EnrollDate = inputUserEnrollment.EnrollDate;
-
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var userEnrollment = await _db.UserEnrollment.FindAsync(id);
-
-            if (userEnrollment == null)
-                return NotFound();
-
-            _db.UserEnrollment.Remove(userEnrollment);
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
+        return NoContent();
     }
 }

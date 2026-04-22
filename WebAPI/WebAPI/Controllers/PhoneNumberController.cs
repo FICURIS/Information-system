@@ -1,73 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class PhoneNumberController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PhoneNumberController : ControllerBase
+    private readonly IPhoneNumberService _service;
+
+    public PhoneNumberController(IPhoneNumberService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public PhoneNumberController(TodoDb db)
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+        => Ok(await _service.GetAll());
+
+    [HttpGet("user/{userId}")]
+    public async Task<IActionResult> GetByUser(int userId)
+        => Ok(await _service.GetByUserId(userId));
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var phone = await _service.GetById(id);
+        if (phone == null) return NotFound();
+
+        return Ok(phone);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(PhoneNumber phone)
+    {
+        try
         {
-            _db = db;
+            var created = await _service.Create(phone);
+            return Ok(created);
         }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<PhoneNumber>>> GetAll()
+        catch
         {
-            return await _db.PhoneNumber.ToListAsync();
+            return BadRequest("User does not exist");
         }
+    }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PhoneNumber>> Get(int id)
-        {
-            var phoneNumber = await _db.PhoneNumber.FindAsync(id);
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        if (!await _service.Delete(id))
+            return NotFound();
 
-            if (phoneNumber == null)
-                return NotFound();
-
-            return phoneNumber;
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<PhoneNumber>> Create(PhoneNumber phoneNumber)
-        {
-            _db.PhoneNumber.Add(phoneNumber);
-            await _db.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(Get), new { id = phoneNumber.PhoneNumberID }, phoneNumber);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, PhoneNumber inputPhoneNumber)
-        {
-            var phoneNumber = await _db.PhoneNumber.FindAsync(id);
-
-            if (phoneNumber == null)
-                return NotFound();
-
-            phoneNumber.Number = inputPhoneNumber.Number;
-            
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var phoneNumber = await _db.PhoneNumber.FindAsync(id);
-
-            if (phoneNumber == null)
-                return NotFound();
-
-            _db.PhoneNumber.Remove(phoneNumber);
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
+        return NoContent();
     }
 }

@@ -1,61 +1,59 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class RoleController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class RoleController : ControllerBase
+    private readonly IRoleService _service;
+
+    public RoleController(IRoleService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public RoleController(TodoDb db)
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+        => Ok(await _service.GetAll());
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var role = await _service.GetById(id);
+        if (role == null) return NotFound();
+
+        return Ok(role);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(Role role)
+    {
+        var created = await _service.Create(role);
+        return Ok(created);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, Role role)
+    {
+        if (!await _service.Update(id, role))
+            return NotFound();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
         {
-            _db = db;
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Role>>> GetAll()
-        {
-            return await _db.Role.ToListAsync();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Role>> Get(int id)
-        {
-            var role = await
-
-
-                _db.Role.FindAsync(id);
-
-            if (role == null)
+            if (!await _service.Delete(id))
                 return NotFound();
-
-            return role;
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<Role>> Create(Role role)
-        {
-            _db.Role.Add(role);
-            await _db.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(Get), new { id = role.RoleID }, role);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var role = await _db.Role.FindAsync(id);
-
-            if (role == null)
-                return NotFound();
-
-            _db.Role.Remove(role);
-            await _db.SaveChangesAsync();
 
             return NoContent();
+        }
+        catch
+        {
+            return BadRequest("Role is used by users");
         }
     }
 }

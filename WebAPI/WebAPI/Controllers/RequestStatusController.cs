@@ -1,73 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
-namespace WebAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class RequestStatusController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class RequestStatusController : ControllerBase
+    private readonly IRequestStatusService _service;
+
+    public RequestStatusController(IRequestStatusService service)
     {
-        private readonly TodoDb _db;
+        _service = service;
+    }
 
-        public RequestStatusController(TodoDb db)
-        {
-            _db = db;
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        return Ok(await _service.GetAll());
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<RequestStatus>>> GetAll()
-        {
-            return await _db.RequestStatus.ToListAsync();
-        }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var status = await _service.GetById(id);
+        if (status == null) return NotFound();
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<RequestStatus>> Get(int id)
-        {
-            var requestStatus = await _db.RequestStatus.FindAsync(id);
+        return Ok(status);
+    }
 
-            if (requestStatus == null)
-                return NotFound();
+    [HttpPost]
+    public async Task<IActionResult> Create(RequestStatus status)
+    {
+        var created = await _service.Create(status);
+        return Ok(created);
+    }
 
-            return requestStatus;
-        }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, RequestStatus status)
+    {
+        if (!await _service.Update(id, status))
+            return NotFound();
 
-        [HttpPost]
-        public async Task<ActionResult<RequestStatus>> Create(RequestStatus requestStatus)
-        {
-            _db.RequestStatus.Add(requestStatus);
-            await _db.SaveChangesAsync();
+        return NoContent();
+    }
 
-            return CreatedAtAction(nameof(Get), new { id = requestStatus.StatusID }, requestStatus);
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        if (!await _service.Delete(id))
+            return NotFound();
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, RequestStatus inputRequestStatus)
-        {
-            var requestStatus = await _db.RequestStatus.FindAsync(id);
-
-            if (requestStatus == null)
-                return NotFound();
-
-            requestStatus.StatusName = inputRequestStatus.StatusName;
-
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var requestStatus = await _db.RequestStatus.FindAsync(id);
-
-            if (requestStatus == null)
-                return NotFound();
-
-            _db.RequestStatus.Remove(requestStatus);
-            await _db.SaveChangesAsync();
-
-            return NoContent();
-        }
+        return NoContent();
     }
 }
