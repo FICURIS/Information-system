@@ -41,6 +41,7 @@
             this.textFirstName = new System.Windows.Forms.MaskedTextBox();
             this.textMiddleName = new System.Windows.Forms.MaskedTextBox();
             this.textEmail = new System.Windows.Forms.MaskedTextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -56,21 +57,21 @@
             // 
             this.textLogin.Location = new System.Drawing.Point(249, 45);
             this.textLogin.Name = "textLogin";
-            this.textLogin.Size = new System.Drawing.Size(100, 22);
+            this.textLogin.Size = new System.Drawing.Size(119, 22);
             this.textLogin.TabIndex = 1;
             // 
             // textPassword
             // 
             this.textPassword.Location = new System.Drawing.Point(249, 92);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(100, 22);
+            this.textPassword.Size = new System.Drawing.Size(119, 22);
             this.textPassword.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(249, 309);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 34);
+            this.button1.Size = new System.Drawing.Size(119, 34);
             this.button1.TabIndex = 3;
             this.button1.Text = "Регистрация";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,35 +126,46 @@
             // 
             this.textLastName.Location = new System.Drawing.Point(249, 132);
             this.textLastName.Name = "textLastName";
-            this.textLastName.Size = new System.Drawing.Size(100, 22);
+            this.textLastName.Size = new System.Drawing.Size(119, 22);
             this.textLastName.TabIndex = 9;
             // 
             // textFirstName
             // 
             this.textFirstName.Location = new System.Drawing.Point(249, 174);
             this.textFirstName.Name = "textFirstName";
-            this.textFirstName.Size = new System.Drawing.Size(100, 22);
+            this.textFirstName.Size = new System.Drawing.Size(119, 22);
             this.textFirstName.TabIndex = 10;
             // 
             // textMiddleName
             // 
             this.textMiddleName.Location = new System.Drawing.Point(249, 220);
             this.textMiddleName.Name = "textMiddleName";
-            this.textMiddleName.Size = new System.Drawing.Size(100, 22);
+            this.textMiddleName.Size = new System.Drawing.Size(119, 22);
             this.textMiddleName.TabIndex = 11;
             // 
             // textEmail
             // 
             this.textEmail.Location = new System.Drawing.Point(249, 262);
             this.textEmail.Name = "textEmail";
-            this.textEmail.Size = new System.Drawing.Size(100, 22);
+            this.textEmail.Size = new System.Drawing.Size(119, 22);
             this.textEmail.TabIndex = 12;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(708, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(80, 39);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Выход";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.textEmail);
             this.Controls.Add(this.textMiddleName);
             this.Controls.Add(this.textFirstName);
@@ -189,5 +201,6 @@
         private System.Windows.Forms.MaskedTextBox textFirstName;
         private System.Windows.Forms.MaskedTextBox textMiddleName;
         private System.Windows.Forms.MaskedTextBox textEmail;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -37,14 +37,13 @@ namespace WindowsFormsApp1
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await _httpClient.PostAsync(
-                "https://localhost:7284/api/auth/register",
+                "https://localhost:7209/api/auth/register",
                 content);
 
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Регистрация успешна!");
 
-                // вернуться на логин
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
                 this.Close();
@@ -54,6 +53,14 @@ namespace WindowsFormsApp1
                 var error = await response.Content.ReadAsStringAsync();
                 MessageBox.Show("Ошибка: " + error);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var login = new LoginForm();
+            login.Show();
+
+            this.Close();
         }
     }
 }

@@ -1,18 +1,21 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Http;
-using Newtonsoft.Json;
 
 
 namespace WindowsFormsApp1
 {
+    
     public partial class LoginForm : Form
     {
         private readonly HttpClient _httpClient = new HttpClient();
@@ -57,12 +60,14 @@ namespace WindowsFormsApp1
             {
                 var responseJson = await response.Content.ReadAsStringAsync();
 
+                dynamic data = JsonConvert.DeserializeObject(responseJson);
+                string token = data.token;
+
+                Session.Token = token;
+
                 MessageBox.Show("Успешный вход!");
-
-                // можно открыть новую форму
-                LoginForm mainForm = new LoginForm();
-                mainForm.Show();
-
+                var main = new MainForm(token);
+                main.Show();
                 this.Hide();
             }
             else
@@ -70,5 +75,14 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Неверный логин или пароль");
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+    public static class Session
+    {
+        public static string Token;
     }
 }

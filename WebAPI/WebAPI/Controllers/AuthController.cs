@@ -30,7 +30,10 @@ public class AuthController : ControllerBase
         {
             Login = dto.Login,
             PasswordHash = dto.Password,
-            Email = dto.Email
+            Email = dto.Email,
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            MiddleName = dto.MiddleName
         };
 
         var created = await _service.Register(user);
