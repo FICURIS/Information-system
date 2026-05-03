@@ -109,6 +109,12 @@
     <Compile Include="AllRequestsForm.Designer.cs">
       <DependentUpon>AllRequestsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseEditForm.Designer.cs">
+      <DependentUpon>CourseEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,8 @@
     <Compile Include="ManageCoursesForm.Designer.cs">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="MyRequestsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +155,9 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CourseEditForm.resx">
+      <DependentUpon>CourseEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CoursesForm.resx">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageCoursesForm.resx">
+      <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

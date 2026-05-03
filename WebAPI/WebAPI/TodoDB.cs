@@ -39,7 +39,7 @@ public class TodoDb : DbContext
         });
         modelBuilder.Entity<Course>().ToTable("courses");
         modelBuilder.Entity<Request>().ToTable("requests");
-        modelBuilder.Entity<Role>().ToTable("roles");
+        modelBuilder.Entity<Role>().ToTable("Role");
         modelBuilder.Entity<RequestStatus>().ToTable("request_statuses");
     }
 }

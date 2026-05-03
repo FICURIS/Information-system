@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "D:\\Repository\\Information-system\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|d:\\repository\\information-system\\webapi\\webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|d:\\repository\\information-system\\webapi\\webapi\\tododb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\tododb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|d:\\repository\\information-system\\webapi\\webapi\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|d:\\repository\\information-system\\webapi\\webapi\\migrations\\20260419060150_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\migrations\\20260419060150_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|d:\\repository\\information-system\\webapi\\webapi\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|d:\\repository\\information-system\\webapi\\webapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D6B33C5-CEE1-20B5-A207-99CBB61F699C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +35,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "WebAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "WebAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Title": "TodoDB.cs",
+              "DocumentMoniker": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\TodoDB.cs",
+              "RelativeDocumentMoniker": "WebAPI\\TodoDB.cs",
+              "ToolTip": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\TodoDB.cs",
+              "RelativeToolTip": "WebAPI\\TodoDB.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAUwCkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T05:54:12.155Z",
+              "WhenOpened": "2026-05-03T06:57:48.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20260419060150_InitialCreate.Designer.cs",
+              "DocumentMoniker": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Migrations\\20260419060150_InitialCreate.Designer.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Migrations\\20260419060150_InitialCreate.Designer.cs",
+              "ToolTip": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Migrations\\20260419060150_InitialCreate.Designer.cs",
+              "RelativeToolTip": "WebAPI\\Migrations\\20260419060150_InitialCreate.Designer.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAQwBEAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T06:56:49.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Models\\Role.cs",
+              "ToolTip": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Models\\Role.cs",
+              "RelativeToolTip": "WebAPI\\Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T06:50:57.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Services\\RoleService.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Services\\RoleService.cs",
+              "ToolTip": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Services\\RoleService.cs",
+              "RelativeToolTip": "WebAPI\\Services\\RoleService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T06:38:31.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Models\\User.cs",
+              "ToolTip": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\Models\\User.cs",
+              "RelativeToolTip": "WebAPI\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T13:24:41.241Z",
               "EditorCaption": ""
             }
           ]

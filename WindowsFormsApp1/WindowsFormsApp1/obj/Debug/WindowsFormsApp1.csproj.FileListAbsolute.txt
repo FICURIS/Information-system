@@ -61,3 +61,5 @@ D:\Repository\Information-system\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Sys
 D:\Repository\Information-system\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Repository\Information-system\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.ValueTuple.xml
 D:\Repository\Information-system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.LoginForm.resources
+D:\Repository\Information-system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CourseEditForm.resources
+D:\Repository\Information-system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ManageCoursesForm.resources

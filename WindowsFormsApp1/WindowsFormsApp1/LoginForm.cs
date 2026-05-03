@@ -80,9 +80,11 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
+        
     }
     public static class Session
     {
         public static string Token;
     }
+
 }

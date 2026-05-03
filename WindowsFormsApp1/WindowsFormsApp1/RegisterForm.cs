@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Models;
 
 namespace WindowsFormsApp1
 {
@@ -42,6 +43,18 @@ namespace WindowsFormsApp1
 
             if (response.IsSuccessStatusCode)
             {
+                var responseJson = await response.Content.ReadAsStringAsync();
+
+                var createdUser = JsonConvert.DeserializeObject<User>(responseJson);
+
+                if (createdUser == null)
+                {
+                    MessageBox.Show("Ошибка при получении пользователя");
+                    return;
+                }
+
+                await AddPhoneNumber(createdUser.UserID);
+
                 MessageBox.Show("Регистрация успешна!");
 
                 LoginForm loginForm = new LoginForm();
@@ -54,6 +67,26 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Ошибка: " + error);
             }
         }
+        private async Task AddPhoneNumber(int userId)
+        {
+            var phone = new
+            {
+                userID = userId,
+                number = maskedTextBox1.Text
+            };
+
+            var json = JsonConvert.SerializeObject(phone);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(
+                "https://localhost:7209/api/phonenumber",
+                content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Ошибка при добавлении телефона");
+            }
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -61,6 +94,11 @@ namespace WindowsFormsApp1
             login.Show();
 
             this.Close();
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
