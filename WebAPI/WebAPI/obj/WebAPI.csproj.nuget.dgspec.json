@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj": {}
+    "D:\\Repository\\Information system\\WebAPI\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj": {
+    "D:\\Repository\\Information system\\WebAPI\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "D:\\Repository\\Information system\\WebAPI\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectPath": "D:\\Repository\\Information system\\WebAPI\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Ficuris\\.nuget\\packages\\",
-        "outputPath": "D:\\Repository\\Information-system\\WebAPI\\WebAPI\\obj\\",
+        "outputPath": "D:\\Repository\\Information system\\WebAPI\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -116,7 +116,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

@@ -77,11 +77,11 @@ namespace WindowsFormsApp1
 
             if (_course == null)
             {
-                await _httpClient.PostAsync("http://localhost:7209/api/course", content);
+                await _httpClient.PostAsync("http://localhost:7209/api/Course", content);
             }
             else
             {
-                await _httpClient.PutAsync($"http://localhost:7209/api/course/{_course.courseID}", content);
+                await _httpClient.PutAsync($"http://localhost:7209/api/Course/{_course.courseID}", content);
             }
 
             DialogResult = DialogResult.OK;

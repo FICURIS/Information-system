@@ -27,7 +27,9 @@ namespace WindowsFormsApp1
             var handler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
             var jwt = handler.ReadJwtToken(_token);
 
-            _userId = int.Parse(jwt.Claims.First(c => c.Type == "UserId").Value);
+            var userIdClaim = jwt.Claims.FirstOrDefault(c => c.Type == "UserId");
+            if (userIdClaim != null)
+                _userId = int.Parse(userIdClaim.Value);
 
             var roleClain = jwt.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role);
             _role = roleClain?.Value ?? "User";
@@ -98,6 +100,11 @@ namespace WindowsFormsApp1
             login.Show();
 
             this.Close();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

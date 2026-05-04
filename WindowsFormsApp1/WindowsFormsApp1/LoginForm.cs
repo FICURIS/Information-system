@@ -64,9 +64,11 @@ namespace WindowsFormsApp1
                 string token = data.token;
 
                 Session.Token = token;
+                var obj = JObject.Parse(responseJson);
+                Session.Token = obj["token"].ToString();
 
                 MessageBox.Show("Успешный вход!");
-                var main = new MainForm(token);
+                var main = new MainForm(Session.Token);
                 main.Show();
                 this.Hide();
             }

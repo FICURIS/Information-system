@@ -46,7 +46,8 @@ public class AuthService : IAuthService
         var claims = new[]
         {
             new Claim(ClaimTypes.Name, user.Login),
-            new Claim("UserId", user.UserID.ToString())
+            new Claim("UserId", user.UserID.ToString()),
+            new Claim(ClaimTypes.Role, "Admin")
         };
 
         var key = new SymmetricSecurityKey(
