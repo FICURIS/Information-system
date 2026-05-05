@@ -22,9 +22,16 @@ public class CourseService : ICourseService
 
     public async Task<Course> Create(Course course)
     {
-        _db.Course.Add(course);
-        await _db.SaveChangesAsync();
-        return course;
+        try
+        {
+            _db.Course.Add(course);
+            await _db.SaveChangesAsync();
+            return course;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.InnerException?.Message ?? ex.Message);
+        }
     }
 
     public async Task<bool> Update(int id, Course input)

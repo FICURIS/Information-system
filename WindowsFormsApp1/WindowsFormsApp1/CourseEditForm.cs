@@ -67,8 +67,8 @@ namespace WindowsFormsApp1
             var courseData = new
             {
                 courseName = textBox1.Text,
-                startDate = dateTimePicker1.Value,
-                endDate = dateTimePicker2.Value,
+                startDate = dateTimePicker1.Value.ToUniversalTime(),
+                endDate = dateTimePicker2.Value.ToUniversalTime(),
                 description = textBox4.Text
             };
 
@@ -77,11 +77,11 @@ namespace WindowsFormsApp1
 
             if (_course == null)
             {
-                await _httpClient.PostAsync("http://localhost:7209/api/Course", content);
+                await _httpClient.PostAsync("https://localhost:7209/api/Course", content);
             }
             else
             {
-                await _httpClient.PutAsync($"http://localhost:7209/api/Course/{_course.courseID}", content);
+                await _httpClient.PutAsync($"https://localhost:7209/api/Course/{_course.courseID}", content);
             }
 
             DialogResult = DialogResult.OK;

@@ -20,9 +20,9 @@ namespace WindowsFormsApp1
 
         
 
-        private void ManageCoursesForm_Load(object sender, EventArgs e)
+        private async void ManageCoursesForm_Load(object sender, EventArgs e)
         {
-
+                        await LoadCourses();
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -82,6 +82,13 @@ namespace WindowsFormsApp1
                 var courses = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Course>>(json);
 
                 dataGridView1.DataSource = courses;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                dataGridView1.Columns["CourseID"].Visible = false;
+                dataGridView1.Columns["CourseName"].HeaderText = "Название курса";
+                dataGridView1.Columns["StartDate"].HeaderText = "Дата начала";
+                dataGridView1.Columns["EndDate"].HeaderText = "Дата окончания";
+                dataGridView1.Columns["Description"].HeaderText = "Описание";
             }
         }
     }

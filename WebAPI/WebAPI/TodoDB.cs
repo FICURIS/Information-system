@@ -37,7 +37,7 @@ public class TodoDb : DbContext
             entity.Property(e => e.Email)
                 .HasColumnName("email");
         });
-        modelBuilder.Entity<Course>().ToTable("courses");
+        modelBuilder.Entity<Course>().ToTable("Course");
         modelBuilder.Entity<Request>().ToTable("requests");
         modelBuilder.Entity<Role>().ToTable("Role");
         modelBuilder.Entity<RequestStatus>().ToTable("request_statuses");
