@@ -109,7 +109,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 62);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Курсы";
+            this.button1.Text = "Отправить заявку на курс";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

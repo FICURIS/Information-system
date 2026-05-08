@@ -115,3 +115,4 @@ D:\Repository\Information system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Win
 D:\Repository\Information system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsF.A1EEDF9B.Up2Date
 D:\Repository\Information system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 D:\Repository\Information system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\Repository\Information system\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MyRequestsForm.resources

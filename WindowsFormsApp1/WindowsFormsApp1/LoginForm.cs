@@ -67,6 +67,13 @@ namespace WindowsFormsApp1
                 var obj = JObject.Parse(responseJson);
                 Session.Token = obj["token"].ToString();
 
+                var handler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+                var jwt = handler.ReadJwtToken(Session.Token);
+
+                Session.UserId = int.Parse(
+                    jwt.Claims.First(c => c.Type == "UserId").Value
+                );
+
                 MessageBox.Show("Успешный вход!");
                 var main = new MainForm(Session.Token);
                 main.Show();
@@ -83,10 +90,6 @@ namespace WindowsFormsApp1
             this.Close();
         }
         
-    }
-    public static class Session
-    {
-        public static string Token;
     }
 
 }

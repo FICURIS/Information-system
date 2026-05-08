@@ -140,6 +140,8 @@
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Requests.cs" />
+    <Compile Include="Models\Session.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="MyRequestsForm.cs">
       <SubType>Form</SubType>
@@ -169,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageCoursesForm.resx">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyRequestsForm.resx">
+      <DependentUpon>MyRequestsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
